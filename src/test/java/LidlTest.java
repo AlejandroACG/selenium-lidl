@@ -11,7 +11,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class lidlTest {
+public class LidlTest {
     private static WebDriver driver;
     private static WebDriverWait wait;
     private static Actions actions;
