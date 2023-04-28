@@ -44,13 +44,14 @@ public class LidlTest {
     @Test
     public void test1() {
         // Navegamos hasta la categoría "Cubertería".
-        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Cocina")));
-        driver.findElement(By.linkText("Cocina")).click();
+        wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.className("pt21-category-ribbon-body"), By.linkText("Cocina")));
+        driver.findElement(By.className("pt21-category-ribbon-body")).findElement(By.linkText("Cocina")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Cubertería")));
         driver.findElement(By.linkText("Cubertería")).click();
 
-        // Comprobamos que carga los 7 resultados que muestra por pantalla.
+        // Comprobamos que carga los 9 resultados que muestra por pantalla.
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("product-grid-box-tile")));
-        Assertions.assertEquals(7, driver.findElements(By.className("product-grid-box-tile")).size());
+        Assertions.assertEquals(9, driver.findElements(By.className("product-grid-box-tile")).size());
     }
 
     @Test
